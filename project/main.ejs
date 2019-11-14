@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>세미나실 예약시스템</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/mycss.css">
+</head>
+
+<body>
+<!-- 네비게이션 바 -->
+  <nav class="navbar navbar-inverse navbar-default navbar-fixed-top">
+  	<div class="container-fluid">
+  		<div class="navbar-header">
+  			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navi">
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  			</button>
+  			<a class="navbar-brand" href="/main"><b>Soft Calendar</b></a>
+  		</div>
+
+  		<div class="collapse navbar-collapse" id="navi">
+  			<ul class="nav navbar-nav navbar-right">
+  				<li><a href=""><b><%= username %> 님</b></a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">MORE<span class=caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/">LOGOUT</a></li>
+            </ul>
+          </li>
+  			</ul>
+  		</div>
+  	</div>
+  </nav>
+
+<!-- 사이드 바 -->
+<div class="sidebar">
+	<ul class="sidebar-style">
+    <li><a href="/space">방정보 보기</a>
+  	<li><a href="/reservation">나의 예약하기</a>
+  	<li><a href="/check">나의 예약확인</a>
+    <img class="img" src="images/schedule.png" />
+  </ul>
+</div>
+
+<div class="right-text">
+  <h1><%= username %> 님, 반갑습니다!</h1><br />
+  <h3>Soft Calendar입니다.</h3>
+  <hr />
+  <div id="calendar-wrap">
+            <header>
+                <h1>November 2019</h1>
+            </header>
+            <div id="calendar">
+                <ul class="weekdays">
+                    <li>Sunday</li>
+                    <li>Monday</li>
+                    <li>Tuesday</li>
+                    <li>Wednesday</li>
+                    <li>Thursday</li>
+                    <li>Friday</li>
+                    <li>Saturday</li>
+                </ul>
+
+                <!-- Days from previous month -->
+
+                <ul class="days">
+                    <li class="day other-month">
+                        <div class="date">27</div>
+                    </li>
+                    <li class="day other-month">
+                        <div class="date">28</div>
+                        <div class="event">
+                            <div class="event-desc">
+                                Group Project meetup
+                            </div>
+                            <div class="event-time">
+                                1:00pm to 3:00pm
+                            </div>
+                        </div>
+                    </li>
+                    <li class="day other-month">
+                        <div class="date">29</div>
+                    </li>
+                    <li class="day other-month">
+                        <div class="date">30</div>
+                    </li>
+                    <li class="day other-month">
+                        <div class="date">31</div>
+                    </li>
+
+                    <!-- Days in current month -->
+
+                    <li class="day">
+                        <div class="date">1</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">2</div>
+                        <div class="event">
+                            <div class="event-desc">
+                                Group Project meetup
+                            </div>
+                            <div class="event-time">
+                                2:00pm to 5:00pm
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+
+                    <!-- Row #2 -->
+
+                <ul class="days">
+                    <li class="day">
+                        <div class="date">3</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">4</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">5</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">6</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">7</div>
+                        <div class="event">
+                            <div class="event-desc">
+                                Group Project meetup
+                            </div>
+                            <div class="event-time">
+                                6:00pm to 8:30pm
+                            </div>
+                        </div>
+                    </li>
+                    <li class="day">
+                        <div class="date">8</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">9</div>
+                    </li>
+                </ul>
+
+                    <!-- Row #3 -->
+
+                <ul class="days">
+                    <li class="day">
+                        <div class="date">10</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">11</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">12</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">13</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">14</div><div class="event">
+                            <div class="event-desc">
+                                Group Project meetup
+                            </div>
+                            <div class="event-time">
+                                1:00pm to 3:00pm
+                            </div>
+                        </div>
+                    </li>
+                    <li class="day">
+                        <div class="date">15</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">16</div>
+                    </li>
+                </ul>
+
+                    <!-- Row #4 -->
+
+                <ul class="days">
+                    <li class="day">
+                        <div class="date">17</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">18</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">19</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">20</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">21</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">22</div>
+                        <div class="event">
+                            <div class="event-desc">
+                                Group Project meetup
+                            </div>
+                            <div class="event-time">
+                                9:00am to 12:00pm
+                            </div>
+                        </div>
+                    </li>
+                    <li class="day">
+                        <div class="date">23</div>
+                    </li>
+                </ul>
+
+                        <!-- Row #5 -->
+
+                <ul class="days">
+                    <li class="day">
+                        <div class="date">24</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">25</div>
+                        <div class="event">
+                            <div class="event-desc">
+                                Group Project meetup
+                            </div>
+                            <div class="event-time">
+                                1:00pm to 3:00pm
+                            </div>
+                        </div>
+                    </li>
+                    <li class="day">
+                        <div class="date">26</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">27</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">28</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">29</div>
+                    </li>
+                    <li class="day">
+                        <div class="date">30</div>
+                    </li>
+                </ul>
+
+
+
+            </div>
+        </div>
+</div>
+
+</body>
+</html>

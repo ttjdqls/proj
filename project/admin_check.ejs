@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>세미나실 예약시스템</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/admin_mycss.css">
+</head>
+
+<body>
+<!-- 네비게이션 바 -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+  	<div class="container-fluid">
+  		<div class="navbar-header">
+  			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navi">
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  			</button>
+  			<a class="navbar-brand" href="/admin_main"><b>Soft Calendar</b></a>
+  		</div>
+
+  		<div class="collapse navbar-collapse" id="navi">
+  			<ul class="nav navbar-nav navbar-right">
+  				<li><a href=""><b><%= username %> 님</b></a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">MORE<span class=caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/">LOGOUT</a></li>
+            </ul>
+          </li>
+  			</ul>
+  		</div>
+  	</div>
+  </nav>
+
+<!-- 사이드 바 -->
+<div class="sidebar">
+	<ul class="sidebar-style">
+    <li><a href="/admin_space">공간 관리하기</a>
+    <li><a href="/admin_check">예약 관리하기</a>
+
+    <br /><br /><br /><br /><img class="img" src="images/schedule.png" />
+  </ul>
+</div>
+
+<div class="right-text">
+  <h1>예약 관리하기</h1><br />
+  <h3>사용자의 예약정보를 관리하세요.</h3><hr />
+
+  <table class="table table-hover">
+    <tbody>
+      <tr>
+        <th>예약자명</th>
+        <th>예약날짜</th>
+        <th>예약시간</th>
+        <th>예약공간</th>
+        <th>예약인원</th>
+        <th>관리여부</th>
+      </tr>
+
+      <tr>
+        <% for (var i = 0; i < rows.length; i++){
+          var data = rows[i];
+        %>
+        <td><%= data.reservuser %></td>
+        <td><%= data.reservdate %></td>
+        <td><%= data.reservtime1 %> ~ <%= data.reservtime2 %></td>
+        <td><%= data.reservspace %></td>
+        <td><%= data.reservnum %></td>
+        <td><a class="hi" href="/admin_update/<%= data.reservnum %>">승인</a> <a class="hi" href="/admin_delete/<%= data.reservnum %>">거부</a></td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>

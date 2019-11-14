@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>세미나실 예약시스템</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="stylesheets/mycss.css">
+  <link rel="stylesheet" href="stylesheets/reserv.css">
+</head>
+
+<body>
+<!-- 네비게이션 바 -->
+  <nav class="navbar navbar-inverse navbar-default navbar-fixed-top">
+  	<div class="container-fluid">
+  		<div class="navbar-header">
+  			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navi">
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  				<span class="icon-bar"></span>
+  			</button>
+  			<a class="navbar-brand" href="/main"><b>Soft Calendar</b></a>
+  		</div>
+
+  		<div class="collapse navbar-collapse" id="navi">
+  			<ul class="nav navbar-nav navbar-right">
+  				<li><a href=""><b><%= username %> 님</b></a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="">MORE<span class=caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/">LOGOUT</a></li>
+            </ul>
+          </li>
+  			</ul>
+  		</div>
+  	</div>
+  </nav>
+
+<!-- 사이드 바 -->
+<div class="sidebar">
+	<ul class="sidebar-style">
+    <li><a href="/space">방정보 보기</a>
+  	<li><a href="/reservation">나의 예약하기</a>
+  	<li><a href="/check">나의 예약확인</a>
+    <img class="img" src="images/schedule.png" />
+  </ul>
+</div>
+
+<div class="right-text">
+  <h1>나의 예약하기</h1><br />
+  <h3>원하는 공간을 예약하세요.</h3><hr />
+
+<p>A타입 : 2층 1호, 2층 2호, 2층 3호</p>
+<p>B타입 : 103호, 106호</p><hr />
+<form action="/reservation" method="post">
+  <div class="row">
+    <div class="col-sm-1">
+        <label>예약공간</label>
+    </div>
+    <div class="col-sm-2">
+      <input type="text" name="reservspace" />
+    </div>
+  </div><br />
+
+  <div class="row">
+    <div class="col-sm-1">
+      <label>예약날짜</label>
+    </div>
+    <div class="col-sm-2">
+      <input type="text" placeholder="ex) 2019-11-01" name="reservdate" min="2019-11-01" />
+    </div>
+  </div><br />
+
+  <div class="row">
+    <div class="col-sm-1">
+      <label>예약시간</label>
+    </div>
+    <div class="col-sm-2">
+      <input type="time" name="reservtime1" min="09:00" max="22:00" />
+      <input type="time" name="reservtime2" min="09:00" max="22:00" />
+    </div>
+  </div><br />
+
+  <div class="row">
+    <div class="col-sm-1">
+      <label>예약인원</label>
+    </div>
+    <div class="col-sm-2">
+      <input type="text" name="reservnum"><br /><hr />
+    </div>
+  </div>
+
+	<div class="row">
+		<div class="col-sm-1">
+			<label>승인여부</label>
+		</div>
+		<div class="col-sm-2">
+			<input type="text" value="승인 대기중" name="reservnow"><br /><hr />
+			<input type="submit" value="예약하기" />
+		</div>
+	</div>
+</form>
+</div>
+
+
+</body>
+</html>
